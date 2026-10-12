@@ -1,0 +1,22 @@
+{
+  "slug": "sarnai-ecommerce",
+  "github": {
+    "owner": "enkhtur0123",
+    "repo": "sarnai-ecommerce",
+    "url": "https://github.com/enkhtur0123/sarnai-ecommerce"
+  },
+  "vercel": {
+    "teamId": "team_m8It4ix1W1sTyTYZ3DGyeeE1",
+    "teamSlug": "enkhturs-projects",
+    "projectId": "prj_UIMw2oX57UW9irtxqLXTjlH8nwKZ",
+    "projectName": "sarnai-ecommerce",
+    "gitConnected": true,
+    "productionUrl": "https://sarnai-ecommerce.vercel.app"
+  },
+  "erxes": {
+    "endpoint": "https://rosekitchen.next.erxes.io/gateway/graphql",
+    "cmsId": "6acc2a86f770ba68b577bdd8",
+    "clientPortalId": "sUHeD5SVU5_ToDPIXXlRT"
+  },
+  "updatedAt": "2026-10-12T01:30:48.322Z"
+}
