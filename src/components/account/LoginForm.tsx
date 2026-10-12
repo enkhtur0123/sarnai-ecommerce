@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useMutation } from "@apollo/client/react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
+import { DemoLoginButton } from "@/components/account/DemoLoginButton";
 import { AuthCard, FormError, credentialVars, readTokens, safeNext } from "@/components/account/AuthCard";
 import {
   CLIENT_PORTAL_USER_LOGIN_WITH_CREDENTIALS,
@@ -92,6 +93,7 @@ export function LoginForm() {
           {t("register")}
         </Link>
       </p>
+      <DemoLoginButton next={next} />
     </AuthCard>
   );
 }

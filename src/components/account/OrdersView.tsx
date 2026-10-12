@@ -9,6 +9,7 @@ import { AccountLayout } from "@/components/account/AccountNav";
 import { FULL_ORDERS, type FullOrdersData, type FullOrdersVariables } from "@/graphql/ecommerce/queries/order";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { placedOrdersAtom } from "@/store/order.store";
+import { DEMO_ORDERS, isDemoUser } from "@/lib/auth/demoCustomer";
 import { HAS_POS } from "@/lib/constants";
 import { formatDate, formatPrice } from "@/lib/utils";
 
@@ -77,7 +78,18 @@ export function OrdersView() {
     fetchPolicy: "cache-and-network",
   });
 
-  const remote: Row[] = (data?.cpFullOrders ?? []).map((o) => ({
+  const demoRows: Row[] = isDemoUser(user)
+    ? DEMO_ORDERS.map((o) => ({
+        id: o._id,
+        number: o.number ?? o._id,
+        date: o.createdAt,
+        total: o.total,
+        count: o.items.reduce((s, i) => s + i.count, 0),
+        status: o.paid ? t("paid") : t("unpaid"),
+        paid: o.paid,
+      }))
+    : [];
+  const remote: Row[] = demoRows.concat((data?.cpFullOrders ?? []).map((o) => ({
     id: o._id,
     number: o.number ?? o._id.slice(-6).toUpperCase(),
     date: o.createdAt,
@@ -85,7 +97,7 @@ export function OrdersView() {
     count: o.items?.length ?? 0,
     status: statusLabel(o.status, Boolean(o.paidDate)),
     paid: Boolean(o.paidDate),
-  }));
+  })));
   const remoteIds = new Set(remote.map((r) => r.id));
   const mine: Row[] = local
     .filter((o) => !remoteIds.has(o._id))

@@ -253,7 +253,10 @@
     "forgot": "Forgot password?",
     "errors": {
       "failed": "Incorrect email/phone or password."
-    }
+    },
+    "or": "or",
+    "demo": "Continue as demo customer",
+    "demoHint": "A demo account to explore the customer area without signing up."
   },
   "register": {
     "title": "Create your account",

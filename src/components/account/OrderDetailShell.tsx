@@ -15,6 +15,7 @@ import {
 } from "@/graphql/ecommerce/queries/order";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { activeOrderAtom, placedOrdersAtom } from "@/store/order.store";
+import { DEMO_ORDERS, isDemoUser } from "@/lib/auth/demoCustomer";
 import { HAS_POS } from "@/lib/constants";
 import { formatDate, formatPrice } from "@/lib/utils";
 import { textFor } from "@/types/catalog";
@@ -32,9 +33,11 @@ export function OrderDetailShell({ orderId }: { orderId: string }) {
   const router = useRouter();
   const statusLabel = useStatusLabel();
   const { user, loading: userLoading } = useAuth();
-  const local = useAtomValue(placedOrdersAtom).find((o) => o._id === orderId);
+  const placed = useAtomValue(placedOrdersAtom);
   const setActive = useSetAtom(activeOrderAtom);
   const customerId = user?.erxesCustomerId ?? "";
+  const demo = isDemoUser(user) ? DEMO_ORDERS.find((o) => o._id === orderId) : undefined;
+  const local = demo ?? placed.find((o) => o._id === orderId);
 
   const { data, loading } = useQuery<CpOrderDetailData, CpOrderDetailVariables>(CP_ORDER_DETAIL, {
     variables: { id: orderId, customerId },
@@ -137,7 +140,7 @@ export function OrderDetailShell({ orderId }: { orderId: string }) {
               </div>
             </div>
 
-            {local && !local.paid && !remote?.paidDate && (
+            {local && !demo && !local.paid && !remote?.paidDate && (
               <button
                 type="button"
                 onClick={() => {
