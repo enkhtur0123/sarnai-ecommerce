@@ -21,6 +21,8 @@ const nextConfig = {
       { protocol: "https", hostname: erxesHost, pathname: "/**" },
       { protocol: "https", hostname: "*.erxes.io", pathname: "/**" },
       { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+      // Seeded erxes products point at the storefront's own bundled images.
+      { protocol: "https", hostname: "sarnai-ecommerce.vercel.app", pathname: "/images/**" },
     ],
     // Design imagery bundled in public/images.
     localPatterns: [{ pathname: "/images/**" }],
