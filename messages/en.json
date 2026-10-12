@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "siteName": "Sarnai",
+    "title": "Sarnai — audio, smart home & everyday carry",
+    "description": "Headphones, speakers, smart home and everyday carry from Sarnai. Fast delivery across Ulaanbaatar."
+  },
+  "common": {
+    "sampleNotice": "Showing sample products — real products appear once the erxes POS is connected.",
+    "loading": "Loading…",
+    "viewAll": "View all",
+    "home": "Home",
+    "close": "Close"
+  },
+  "topbar": {
+    "hot": "HOT",
+    "promo": "Free delivery on orders over 200,000₮",
+    "help": "Help"
+  },
+  "header": {
+    "searchPlaceholder": "Search for headphones, speakers, bags…",
+    "allCategories": "All Categories",
+    "search": "Search",
+    "account": "Account",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "categories": "Categories",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "flash": "Flash Deals",
+    "newArrivals": "New Arrivals",
+    "blog": "Blog",
+    "track": "Track Order",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "eyebrow": "BIG SALE · UP TO 30% OFF",
+    "title": "Up to 30% off your first order",
+    "lead": "Premium audio, smart speakers and everyday carry. Free delivery on all orders over 200,000₮.",
+    "shopNow": "Shop Now",
+    "viewCollection": "View Collection",
+    "tagFrom": "from {price}",
+    "tagTitle": "Studio Headphones"
+  },
+  "flash": {
+    "title": "Flash Deals",
+    "endsIn": "Ends in",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "categories": {
+    "title": "Custom solutions for your needs",
+    "lead": "Shop gear built around how you listen, work and travel.",
+    "viewAll": "View all categories",
+    "count": "{count, plural, one {# product} other {# products}}"
+  },
+  "forYou": {
+    "title": "Just for you",
+    "all": "All"
+  },
+  "promo": {
+    "darkEyebrow": "NEW SEASON",
+    "darkTitle": "Smart speakers for every room",
+    "darkCta": "Explore Speakers",
+    "lightEyebrow": "WEEKEND ONLY",
+    "lightTitle": "Bags & carry up to 20% off",
+    "lightCta": "Shop Bags"
+  },
+  "topCats": {
+    "title": "Top Categories",
+    "lead": "Most-shopped collections this week",
+    "viewAll": "View All Categories"
+  },
+  "newArrivals": {
+    "title": "New Arrivals"
+  },
+  "blog": {
+    "title": "Read our blogs",
+    "all": "All articles",
+    "pageTitle": "Blog",
+    "pageLead": "Guides, setups and gear picks from the Sarnai team.",
+    "empty": "No articles yet — check back soon.",
+    "back": "← All articles",
+    "readMore": "Read article"
+  },
+  "services": {
+    "delivery": "Fast Delivery",
+    "deliverySub": "Free on orders over 200,000₮",
+    "payment": "Safe Payment",
+    "paymentSub": "QPay, cards and bank transfer",
+    "confidence": "Shop With Confidence",
+    "confidenceSub": "14-day hassle-free returns",
+    "support": "Customer Support",
+    "supportSub": "Real people, every day 9:00–21:00"
+  },
+  "newsletter": {
+    "eyebrow": "UP TO 15% OFF",
+    "title": "Sign up to Sarnai & save on your next order",
+    "lead": "Weekly drops, early access to flash deals and member-only pricing.",
+    "placeholder": "Enter your email address",
+    "submit": "Subscribe",
+    "thanks": "Almost there — create an account to get member pricing and early access to deals.",
+    "createAccount": "Create account"
+  },
+  "footer": {
+    "about": "Your one-stop shop for audio, smart home and everyday carry — delivered across Mongolia.",
+    "shop": "Shop",
+    "company": "About Us",
+    "care": "Customer Care",
+    "contact": "Contact Us",
+    "bestSellers": "Best Sellers",
+    "allProducts": "All Products",
+    "aboutUs": "About Sarnai",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "account": "My Account",
+    "track": "Track Your Order",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "address": "Peace Avenue 17, Sukhbaatar district, Ulaanbaatar",
+    "rights": "© {year} Sarnai. All rights reserved.",
+    "payments": "Payment methods"
+  },
+  "product": {
+    "off": "{percent}% off",
+    "new": "New",
+    "addToCart": "Add to cart",
+    "addShort": "Add {name} to cart",
+    "wishlistAdd": "Add to wishlist",
+    "wishlistRemove": "Remove from wishlist",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "description": "Description",
+    "noDescription": "Details for this product will be added soon.",
+    "related": "You may also like",
+    "notFound": "Product not found",
+    "notFoundLead": "This product may have been removed or is no longer available.",
+    "backToShop": "Back to shop",
+    "buyNow": "Buy now",
+    "perks1": "Free delivery over 200,000₮",
+    "perks2": "14-day returns",
+    "perks3": "Secure checkout",
+    "rating": "Rated {rating} out of 5"
+  },
+  "products": {
+    "title": "Shop",
+    "lead": "Everything in store, ready to ship.",
+    "searchResults": "Results for “{q}”",
+    "all": "All products",
+    "count": "{count, plural, one {# product} other {# products}}",
+    "sort": "Sort by",
+    "sortFeatured": "Featured",
+    "sortPriceAsc": "Price: low to high",
+    "sortPriceDesc": "Price: high to low",
+    "sortName": "Name",
+    "empty": "No products match your filters.",
+    "clear": "Clear filters",
+    "filterFlash": "Flash deals",
+    "filterNew": "New arrivals"
+  },
+  "cart": {
+    "title": "Shopping cart",
+    "empty": "Your cart is empty",
+    "emptyLead": "Browse the shop and add something you love.",
+    "continue": "Continue shopping",
+    "subtotal": "Subtotal",
+    "shipping": "Delivery",
+    "free": "Free",
+    "shippingCalc": "Calculated at checkout",
+    "total": "Total",
+    "checkout": "Checkout",
+    "viewCart": "View cart",
+    "remove": "Remove",
+    "items": "{count, plural, one {# item} other {# items}}",
+    "freeShippingLeft": "Add {amount} more for free delivery",
+    "freeShippingDone": "You've unlocked free delivery"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "contact": "Contact details",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone",
+    "email": "Email",
+    "deliveryTitle": "Delivery",
+    "delivery": "Delivery",
+    "deliverySub": "Courier to your address",
+    "pickup": "Pickup",
+    "pickupSub": "Collect from our store",
+    "address": "Delivery address",
+    "addressPlaceholder": "District, khoroo, building, apartment",
+    "pickupNote": "Pick up at: Peace Avenue 17, Ulaanbaatar · Every day 10:00–20:00",
+    "notes": "Order notes (optional)",
+    "payment": "Payment method",
+    "noPayments": "Online payment isn't enabled yet — we'll call you to confirm and arrange payment.",
+    "summary": "Order summary",
+    "place": "Place order",
+    "placing": "Placing order…",
+    "loginHint": "Have an account?",
+    "login": "Sign in",
+    "emptyCart": "Your cart is empty.",
+    "errors": {
+      "contact": "Enter your first name and a valid phone number.",
+      "address": "Enter a delivery address.",
+      "posMissing": "Ordering isn't connected yet — the store's erxes POS is not configured. The products shown are samples.",
+      "submitFailed": "We couldn't place your order. Please try again."
+    },
+    "feeNote": "The delivery fee is paid to the courier on delivery; online payment covers the items."
+  },
+  "verify": {
+    "title": "Complete payment",
+    "lead": "Choose a payment method and pay to confirm your order.",
+    "orderNo": "Order number",
+    "total": "Total",
+    "method": "Payment method",
+    "loading": "Loading payment methods…",
+    "noMethods": "Online payment isn't enabled yet. Your order is received — we'll call you to confirm and arrange payment.",
+    "pay": "Pay {amount}",
+    "creating": "Creating invoice…",
+    "scanQr": "Scan the QR code with your bank app",
+    "qrAlt": "Payment QR code",
+    "pendingNoQr": "Follow the instructions from your payment provider.",
+    "waiting": "Waiting for payment — this page updates automatically.",
+    "checkStatus": "Check payment status",
+    "notPaidYet": "Payment not received yet. Try again in a moment.",
+    "error": "Something went wrong creating the payment. Please try again.",
+    "paidTitle": "Thank you! Payment received",
+    "paidLead": "Order <b>{number}</b> is confirmed. We'll contact you about delivery.",
+    "receivedTitle": "Order received",
+    "receivedLead": "Order <b>{number}</b> has been placed. We'll call you shortly to confirm.",
+    "track": "Track order",
+    "continue": "Continue shopping",
+    "noOrderTitle": "No order to pay",
+    "noOrderLead": "Place an order first and you'll be brought back here to pay.",
+    "toShop": "Go to shop",
+    "invoiceDescription": "Sarnai order {number}"
+  },
+  "login": {
+    "title": "Welcome back",
+    "lead": "Sign in to track orders and save your wishlist.",
+    "identifier": "Email or phone",
+    "password": "Password",
+    "submit": "Sign in",
+    "submitting": "Signing in…",
+    "noAccount": "New to Sarnai?",
+    "register": "Create an account",
+    "forgot": "Forgot password?",
+    "errors": {
+      "failed": "Incorrect email/phone or password."
+    }
+  },
+  "register": {
+    "title": "Create your account",
+    "lead": "Faster checkout, order tracking and member pricing.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "passwordHint": "At least 8 characters",
+    "submit": "Create account",
+    "submitting": "Creating account…",
+    "haveAccount": "Already have an account?",
+    "login": "Sign in",
+    "success": "Account created. Please sign in.",
+    "verifyNotice": "Account created. Check your email or phone to verify it, then sign in.",
+    "errors": {
+      "failed": "We couldn't create the account. The email or phone may already be registered."
+    }
+  },
+  "forgot": {
+    "title": "Reset password",
+    "lead": "Enter your email or phone and we'll send you reset instructions.",
+    "identifier": "Email or phone",
+    "submit": "Send instructions",
+    "submitting": "Sending…",
+    "sent": "If an account exists, reset instructions are on their way.",
+    "back": "← Back to sign in"
+  },
+  "account": {
+    "title": "My account",
+    "greeting": "Hello, {name}",
+    "profile": "Profile",
+    "orders": "Orders",
+    "wishlist": "Wishlist",
+    "logout": "Sign out",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "memberSince": "Member since",
+    "notSet": "Not set"
+  },
+  "orders": {
+    "title": "My orders",
+    "lead": "Track the status of your orders.",
+    "empty": "No orders yet.",
+    "localTitle": "Placed from this device",
+    "accountTitle": "Account orders",
+    "number": "Order",
+    "date": "Date",
+    "total": "Total",
+    "status": "Status",
+    "items": "{count, plural, one {# item} other {# items}}",
+    "view": "View",
+    "pay": "Pay now",
+    "paid": "Paid",
+    "unpaid": "Awaiting payment",
+    "signInHint": "Sign in to see every order linked to your account.",
+    "detailTitle": "Order details",
+    "notFound": "Order not found — it may belong to another account.",
+    "back": "← Back to orders",
+    "delivery": "Delivery",
+    "deliveryFee": "Delivery fee",
+    "address": "Address",
+    "statuses": {
+      "new": "New",
+      "pending": "Pending",
+      "doing": "Preparing",
+      "reDoing": "Preparing",
+      "done": "Ready",
+      "complete": "Completed",
+      "paid": "Paid",
+      "cancelled": "Cancelled",
+      "returned": "Returned"
+    }
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "lead": "Products you saved for later.",
+    "empty": "Your wishlist is empty",
+    "emptyLead": "Tap the heart on any product to save it here.",
+    "remove": "Remove",
+    "moveToCart": "Add to cart"
+  },
+  "pages": {
+    "breadcrumb": "Home",
+    "pending": "This page's content is being prepared.",
+    "about": {
+      "title": "About Sarnai",
+      "lead": "A curated store for audio, smart home and everyday carry."
+    },
+    "contact": {
+      "title": "Contact us",
+      "lead": "We're here every day 9:00–21:00.",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Hours",
+      "hoursValue": "Every day 9:00–21:00"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "lead": "Delivery, payment and returns — answered."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "The page you're looking for doesn't exist or has moved.",
+    "home": "Back to home"
+  }
+}

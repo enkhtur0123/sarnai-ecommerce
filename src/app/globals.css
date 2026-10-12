@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* Design tokens from ecommerce.pen (Bazaar Market – Home). */
+@theme {
+  --color-navy: #2b3445;
+  --color-ink: #1f2937;
+  --color-muted: #7d879c;
+  --color-line: #e3e9ef;
+  --color-surface: #f3f5f9;
+  --color-page: #f6f9fc;
+  --color-accent: #d23f57;
+  --color-accent-deep: #b52f46;
+  --color-accent-tint: #fce9ec;
+  --color-hero: #e9edf2;
+  --color-footer: #1e2533;
+  --color-star: #faaf00;
+  --color-star-off: #dae1e7;
+
+  --font-sans: var(--font-jakarta), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-page);
+    color: var(--color-navy);
+    font-family: var(--font-sans);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* Component classes sit below utilities so className overrides still win. */
+@layer components {
+  /* 1280px content column with the design's 80px gutters at 1440. */
+  .container-x {
+    width: 100%;
+    max-width: 1312px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+
+  .field {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 10px;
+    border: 1px solid var(--color-line);
+    background: #fff;
+    padding: 0 16px;
+    font-size: 14px;
+    color: var(--color-navy);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field::placeholder {
+    color: var(--color-muted);
+  }
+  .field:focus {
+    border-color: var(--color-navy);
+    box-shadow: 0 0 0 3px rgb(43 52 69 / 0.08);
+  }
+  textarea.field {
+    padding-block: 12px;
+    min-height: 96px;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    border-radius: 8px;
+    background: var(--color-navy);
+    padding: 0 28px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover {
+    background: var(--color-ink);
+  }
+  .btn-primary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    border-radius: 8px;
+    background: var(--color-accent);
+    padding: 0 28px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    transition: background 0.15s;
+  }
+  .btn-accent:hover {
+    background: var(--color-accent-deep);
+  }
+  .btn-accent:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    border-radius: 8px;
+    border: 1px solid var(--color-line);
+    background: #fff;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-navy);
+    transition: border-color 0.15s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-navy);
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Rich text authored in erxes CMS. */
+.cms-content {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-ink);
+}
+.cms-content > * + * {
+  margin-top: 1em;
+}
+.cms-content h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-top: 1.6em;
+}
+.cms-content h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-top: 1.4em;
+}
+.cms-content ul,
+.cms-content ol {
+  padding-left: 1.4em;
+}
+.cms-content ul {
+  list-style: disc;
+}
+.cms-content ol {
+  list-style: decimal;
+}
+.cms-content a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+.cms-content img {
+  border-radius: 14px;
+}
