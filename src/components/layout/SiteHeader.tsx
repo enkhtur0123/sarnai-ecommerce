@@ -1,5 +1,4 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { TopBar } from "@/components/layout/TopBar";
 import { MainHeader } from "@/components/layout/MainHeader";
 import { NavBar, type NavLink } from "@/components/layout/NavBar";
 import { CartDrawer } from "@/components/layout/CartDrawer";
@@ -25,8 +24,7 @@ async function headerLinks(): Promise<NavLink[]> {
 export async function SiteHeader() {
   const links = await headerLinks();
   return (
-    <header>
-      <TopBar />
+    <header className="sticky top-0 z-30 lg:static">
       <MainHeader />
       <NavBar links={links} />
       <CartDrawer />

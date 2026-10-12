@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
-/* Design tokens from ecommerce.pen (Bazaar Market – Home). */
+/* Sarnai design tokens — primary #E11D2E, background #F5F6F8, text #1F2937, secondary #9CA3AF. */
 @theme {
-  --color-navy: #2b3445;
-  --color-ink: #1f2937;
-  --color-muted: #7d879c;
-  --color-line: #e3e9ef;
-  --color-surface: #f3f5f9;
-  --color-page: #f6f9fc;
-  --color-accent: #d23f57;
-  --color-accent-deep: #b52f46;
-  --color-accent-tint: #fce9ec;
-  --color-hero: #e9edf2;
-  --color-footer: #1e2533;
-  --color-star: #faaf00;
-  --color-star-off: #dae1e7;
+  --color-navy: #1f2937;
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+  --color-secondary: #9ca3af;
+  --color-line: #e5e7eb;
+  --color-surface: #f5f6f8;
+  --color-page: #f5f6f8;
+  --color-accent: #e11d2e;
+  --color-accent-deep: #c01625;
+  --color-accent-tint: #fdecee;
+  --color-hero: #fff1f2;
+  --color-footer: #1f2937;
+  --color-star: #f59e0b;
+  --color-star-off: #e5e7eb;
 
-  --font-sans: var(--font-jakarta), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -41,7 +42,7 @@
   /* 1280px content column with the design's 80px gutters at 1440. */
   .container-x {
     width: 100%;
-    max-width: 1312px;
+    max-width: 1280px;
     margin-inline: auto;
     padding-inline: 16px;
   }
@@ -62,8 +63,8 @@
     color: var(--color-muted);
   }
   .field:focus {
-    border-color: var(--color-navy);
-    box-shadow: 0 0 0 3px rgb(43 52 69 / 0.08);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgb(225 29 46 / 0.1);
   }
   textarea.field {
     padding-block: 12px;
@@ -86,15 +87,15 @@
     gap: 10px;
     min-height: 48px;
     border-radius: 8px;
-    background: var(--color-navy);
+    background: var(--color-accent);
     padding: 0 28px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     color: #fff;
     transition: background 0.15s;
   }
   .btn-primary:hover {
-    background: var(--color-ink);
+    background: var(--color-accent-deep);
   }
   .btn-primary:disabled {
     opacity: 0.55;

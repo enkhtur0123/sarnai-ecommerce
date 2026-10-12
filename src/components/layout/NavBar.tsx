@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Headphones, LayoutGrid, Menu, X } from "lucide-react";
+import { ChevronDown, Headphones, Menu } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { useCatalog } from "@/lib/hooks/useCatalog";
@@ -44,14 +44,14 @@ function CategoriesMenu() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex h-[42px] w-[250px] items-center gap-2.5 rounded-lg bg-surface px-4 text-sm font-semibold text-navy"
+        className="flex h-10 w-[240px] items-center gap-2.5 rounded-lg bg-accent px-4 text-[13px] font-semibold text-white hover:bg-accent-deep"
       >
-        <LayoutGrid size={18} aria-hidden="true" />
-        <span className="flex-1 text-left">{t("categories")}</span>
+        <Menu size={18} aria-hidden="true" />
+        <span className="flex-1 text-left">{t("allCategories")}</span>
         <ChevronDown size={16} className={cn("transition-transform", open && "rotate-180")} aria-hidden="true" />
       </button>
       {open && (
-        <ul className="absolute left-0 top-[calc(100%+8px)] z-40 m-0 w-[250px] list-none rounded-xl border border-line bg-white p-2 shadow-[0_16px_40px_rgba(43,52,69,0.12)]">
+        <ul className="absolute left-0 top-[calc(100%+8px)] z-40 m-0 w-[240px] list-none rounded-xl border border-line bg-white p-2 shadow-[0_16px_40px_rgba(31,41,55,0.12)]">
           {categories.map((c) => (
             <li key={c._id}>
               <Link
@@ -72,13 +72,12 @@ function CategoriesMenu() {
 export function NavBar({ links }: { links: NavLink[] }) {
   const t = useTranslations("header");
   const pathname = usePathname();
-  // Open only for the path it was opened on, so navigating closes it.
-  const [openOn, setOpenOn] = useState<string | null>(null);
-  const mobileOpen = openOn === pathname;
+  // The homepage carries its own category sidebar, as in the design.
+  if (pathname === "/") return null;
 
   return (
-    <nav aria-label={t("menu")} className="border-b border-line bg-white">
-      <div className="container-x hidden h-[60px] items-center justify-between gap-6 lg:flex">
+    <nav aria-label={t("menu")} className="hidden border-b border-line bg-white lg:block">
+      <div className="container-x flex h-14 items-center justify-between gap-6">
         <CategoriesMenu />
         <ul className="m-0 flex list-none items-center gap-7 p-0 xl:gap-9">
           {links.map((l) => (
@@ -100,39 +99,6 @@ export function NavBar({ links }: { links: NavLink[] }) {
           {HOTLINE}
         </a>
       </div>
-
-      <div className="container-x flex h-12 items-center justify-between lg:hidden">
-        <button
-          type="button"
-          onClick={() => setOpenOn(mobileOpen ? null : pathname)}
-          aria-expanded={mobileOpen}
-          className="flex items-center gap-2 text-sm font-semibold text-navy"
-        >
-          {mobileOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
-          {t("menu")}
-        </button>
-        <a href={`tel:${HOTLINE.replace(/\s/g, "")}`} className="flex items-center gap-2 text-sm font-bold text-navy">
-          <Headphones size={16} aria-hidden="true" />
-          {HOTLINE}
-        </a>
-      </div>
-      {mobileOpen && (
-        <ul className="container-x m-0 flex list-none flex-col gap-1 pb-4 lg:hidden">
-          {links.map((l) => (
-            <li key={l.id}>
-              <Link
-                href={l.href}
-                className={cn(
-                  "block rounded-lg px-3 py-2.5 text-[15px]",
-                  isActive(pathname, l.href) ? "bg-accent-tint font-bold text-accent" : "font-medium text-navy hover:bg-surface",
-                )}
-              >
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
     </nav>
   );
 }

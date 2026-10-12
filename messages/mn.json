@@ -17,7 +17,7 @@
     "help": "Тусламж"
   },
   "header": {
-    "searchPlaceholder": "Чихэвч, чанга яригч, цүнх хайх…",
+    "searchPlaceholder": "Бараа, брэнд хайх…",
     "allCategories": "Бүх ангилал",
     "search": "Хайх",
     "account": "Бүртгэл",
@@ -25,7 +25,8 @@
     "cart": "Сагс",
     "categories": "Ангилал",
     "menu": "Цэс",
-    "language": "Хэл"
+    "language": "Хэл",
+    "notifications": "Мэдэгдэл"
   },
   "nav": {
     "home": "Нүүр",
@@ -366,5 +367,41 @@
     "title": "Хуудас олдсонгүй",
     "lead": "Таны хайсан хуудас байхгүй эсвэл шилжсэн байна.",
     "home": "Нүүр хуудас руу"
+  },
+  "tabs": {
+    "label": "Үндсэн цэс",
+    "home": "Нүүр",
+    "categories": "Ангилал",
+    "cart": "Сагс",
+    "orders": "Захиалга",
+    "account": "Бүртгэл"
+  },
+  "home": {
+    "allCategories": "Бүх ангилал",
+    "more": "Бусад",
+    "heroTitle1": "Илүү сайн сонголт",
+    "heroTitle2": "Илүү их хэмнэлт",
+    "heroLead": "Шилдэг брэнд. Хямд үнэ. Шуурхай хүргэлт.",
+    "shopNow": "Худалдан авах",
+    "freeDelivery": "Үнэгүй хүргэлт",
+    "freeDeliverySub": "200,000₮-өөс дээш захиалгад",
+    "securePayment": "Аюулгүй төлбөр",
+    "securePaymentSub": "100% найдвартай",
+    "easyReturns": "Хялбар буцаалт",
+    "easyReturnsSub": "14 хоногийн дотор",
+    "dealsTitle": "Өнөөдрийн хямдрал",
+    "viewAll": "Бүгдийг харах",
+    "promoTitle": "Шинэ бараа танд хүргэгдэнэ",
+    "promoLead": "Шинэ сонголт, илүү тав тух.",
+    "promoCta": "Шинэ бараа",
+    "recommendedTitle": "Танд санал болгох",
+    "wideSelection": "Өргөн сонголт",
+    "wideSelectionSub": "Итгэмжит брэндийн мянга мянган бараа",
+    "greatPrices": "Хямд үнэ",
+    "greatPricesSub": "Шилдэг хямдрал, онцгой урамшуулал",
+    "fastDelivery": "Шуурхай хүргэлт",
+    "fastDeliverySub": "Захиалгаа гэрийн үүдэнд хүлээн аваарай",
+    "secureShopping": "Аюулгүй худалдаа",
+    "secureShoppingSub": "Олон төрлийн төлбөр, худалдан авагчийн хамгаалалт"
   }
 }

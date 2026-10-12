@@ -17,7 +17,7 @@
     "help": "Help"
   },
   "header": {
-    "searchPlaceholder": "Search for headphones, speakers, bags…",
+    "searchPlaceholder": "Search for products, brands and more…",
     "allCategories": "All Categories",
     "search": "Search",
     "account": "Account",
@@ -25,7 +25,8 @@
     "cart": "Cart",
     "categories": "Categories",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "notifications": "Notifications"
   },
   "nav": {
     "home": "Home",
@@ -366,5 +367,41 @@
     "title": "Page not found",
     "lead": "The page you're looking for doesn't exist or has moved.",
     "home": "Back to home"
+  },
+  "tabs": {
+    "label": "Main navigation",
+    "home": "Home",
+    "categories": "Categories",
+    "cart": "Cart",
+    "orders": "Orders",
+    "account": "Account"
+  },
+  "home": {
+    "allCategories": "All Categories",
+    "more": "More",
+    "heroTitle1": "Better Choices",
+    "heroTitle2": "Bigger Savings",
+    "heroLead": "Top brands. Great prices. Fast delivery.",
+    "shopNow": "Shop Now",
+    "freeDelivery": "Free Delivery",
+    "freeDeliverySub": "On orders over 200,000₮",
+    "securePayment": "Secure Payment",
+    "securePaymentSub": "100% safe & reliable",
+    "easyReturns": "Easy Returns",
+    "easyReturnsSub": "Within 14 days",
+    "dealsTitle": "Today's Deals",
+    "viewAll": "View All",
+    "promoTitle": "New Arrivals Delivered to You",
+    "promoLead": "Fresh picks, better living.",
+    "promoCta": "Shop New",
+    "recommendedTitle": "Recommended for You",
+    "wideSelection": "Wide Selection",
+    "wideSelectionSub": "Thousands of products from trusted brands",
+    "greatPrices": "Great Prices",
+    "greatPricesSub": "Top deals and exclusive discounts",
+    "fastDelivery": "Fast Delivery",
+    "fastDeliverySub": "Get your order at your doorstep",
+    "secureShopping": "Secure Shopping",
+    "secureShoppingSub": "Multiple payment options and buyer protection"
   }
 }

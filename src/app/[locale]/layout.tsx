@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
@@ -9,19 +9,13 @@ import { AuthProvider } from "@/lib/auth/AuthContext";
 import { routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/layout/Footer";
+import { MobileTabBar } from "@/components/layout/MobileTabBar";
 import "../globals.css";
 
-// Plus Jakarta Sans is the design face; it has no basic Cyrillic, so
-// Manrope (same geometric feel) renders Mongolian glyphs.
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["cyrillic"],
+// Inter is the Sarnai design face and covers Cyrillic for Mongolian.
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700", "800"],
 });
 
@@ -46,15 +40,16 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${jakarta.variable} ${manrope.variable} h-full antialiased`}>
+    <html lang={locale} className={`${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
           <ApolloClientProvider>
             <AuthProvider>
               <JotaiProvider>
                 <SiteHeader />
-                <main className="flex-1">{children}</main>
+                <main className="flex-1 pb-16 lg:pb-0">{children}</main>
                 <Footer />
+                <MobileTabBar />
               </JotaiProvider>
             </AuthProvider>
           </ApolloClientProvider>
