@@ -10,7 +10,16 @@ import { cn, discountPercent, formatPrice } from "@/lib/utils";
 import { textFor, type CatalogProduct } from "@/types/catalog";
 
 /** Sarnai product card: white tile, "-15%" badge, red price, star score, cart button. */
-export function ProductCard({ product, className }: { product: CatalogProduct; className?: string }) {
+export function ProductCard({
+  product,
+  className,
+  href: hrefProp,
+}: {
+  product: CatalogProduct;
+  className?: string;
+  /** Detail link; defaults to the main shop's /products/[id]. */
+  href?: string;
+}) {
   const t = useTranslations("product");
   const locale = useLocale();
   const { add } = useCart();
@@ -18,7 +27,7 @@ export function ProductCard({ product, className }: { product: CatalogProduct; c
   const name = textFor(product.name, locale);
   const off = discountPercent(product.unitPrice, product.oldPrice);
   const saved = wishlist.has(product._id);
-  const href = `/products/${product._id}`;
+  const href = hrefProp ?? `/products/${product._id}`;
 
   return (
     <article

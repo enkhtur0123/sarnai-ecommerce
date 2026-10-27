@@ -75,6 +75,7 @@ export function CheckoutForm() {
           customerId,
           customerType: customerId ? "customer" : undefined,
           description,
+          saleStatus: "pending_payment",
           deliveryInfo: {
             firstName: firstName.trim(),
             lastName: lastName.trim(),
@@ -104,6 +105,7 @@ export function CheckoutForm() {
         items: items.map((i) => ({ name: i.name, count: i.count, unitPrice: i.unitPrice, imageUrl: i.imageUrl })),
         paymentId: paymentId || undefined,
         paid: false,
+        status: "pending_payment",
       };
       setActiveOrder(placed);
       setPlaced((list) => [placed, ...list.filter((o) => o._id !== placed._id)]);

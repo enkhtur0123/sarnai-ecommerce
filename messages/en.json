@@ -323,15 +323,24 @@
     "deliveryFee": "Delivery fee",
     "address": "Address",
     "statuses": {
-      "new": "New",
-      "pending": "Pending",
-      "doing": "Preparing",
-      "reDoing": "Preparing",
-      "done": "Ready",
-      "complete": "Completed",
+      "pending_payment": "Pending Payment",
       "paid": "Paid",
-      "cancelled": "Cancelled",
-      "returned": "Returned"
+      "processing": "Processing",
+      "ready_for_shipment": "Ready for Shipment",
+      "out_for_delivery": "Out for Delivery",
+      "delivered": "Delivered",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "statusDescriptions": {
+      "pending_payment": "Order created; waiting for customer payment.",
+      "paid": "Payment successfully verified by the payment system.",
+      "processing": "Seller confirms stock, picks items, and prepares the order.",
+      "ready_for_shipment": "Items packed and ready for courier pickup or collection.",
+      "out_for_delivery": "Courier is delivering the order to the customer.",
+      "delivered": "Customer has received the order.",
+      "completed": "Order is fully completed and closed.",
+      "cancelled": "Order was cancelled."
     }
   },
   "wishlist": {
@@ -403,5 +412,13 @@
     "fastDeliverySub": "Get your order at your doorstep",
     "secureShopping": "Secure Shopping",
     "secureShoppingSub": "Multiple payment options and buyer protection"
+  },
+  "own": {
+    "title": "Sarnai Own Collection",
+    "badge": "Sarnai original",
+    "lead": "Products we make and sell ourselves. You found this page through the code on our label — thank you for choosing us.",
+    "back": "Back to collection",
+    "emptyTitle": "Coming soon",
+    "emptyLead": "Our own products will appear here shortly."
   }
 }

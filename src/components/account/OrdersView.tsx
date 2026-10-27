@@ -10,15 +10,57 @@ import { FULL_ORDERS, type FullOrdersData, type FullOrdersVariables } from "@/gr
 import { useAuth } from "@/lib/auth/AuthContext";
 import { placedOrdersAtom } from "@/store/order.store";
 import { DEMO_ORDERS, isDemoUser } from "@/lib/auth/demoCustomer";
-import { HAS_POS } from "@/lib/constants";
-import { formatDate, formatPrice } from "@/lib/utils";
+import { HAS_POS, ORDER_STATUS, type OrderStatusKey } from "@/lib/constants";
+import { ORDER_STATUS_BADGE, normalizeOrderStatus } from "@/lib/orderStatus";
+import { formatDate, formatPrice, cn } from "@/lib/utils";
+
+export function useStatusKey() {
+  return (status?: string, paid?: boolean): OrderStatusKey =>
+    normalizeOrderStatus(status, paid);
+}
 
 export function useStatusLabel() {
   const t = useTranslations("orders");
   return (status?: string, paid?: boolean) => {
+    const key = normalizeOrderStatus(status, paid);
+    if (t.has(`statuses.${key}`)) return t(`statuses.${key}`);
+    // Back-compat: very old stored raw values.
     if (status && t.has(`statuses.${status}`)) return t(`statuses.${status}`);
     return paid ? t("paid") : t("unpaid");
   };
+}
+
+export function useStatusDescription() {
+  const t = useTranslations("orders");
+  return (statusKey: OrderStatusKey) => {
+    const fullKey = `statusDescriptions.${statusKey}`;
+    if (t.has(fullKey)) return t(fullKey);
+    return "";
+  };
+}
+
+export function OrderStatusBadge({
+  statusKey,
+  className,
+}: {
+  statusKey: OrderStatusKey;
+  className?: string;
+}) {
+  const t = useTranslations("orders");
+  const label = t.has(`statuses.${statusKey}`)
+    ? t(`statuses.${statusKey}`)
+    : statusKey;
+  return (
+    <span
+      className={cn(
+        "rounded-full px-3 py-1 text-xs font-bold",
+        ORDER_STATUS_BADGE[statusKey],
+        className,
+      )}
+    >
+      {label}
+    </span>
+  );
 }
 
 type Row = {
@@ -27,7 +69,7 @@ type Row = {
   date?: string;
   total: number;
   count: number;
-  status: string;
+  statusKey: OrderStatusKey;
   paid: boolean;
 };
 
@@ -50,7 +92,7 @@ function OrderRows({ rows, payable }: { rows: Row[]; payable?: boolean }) {
                 {formatDate(o.date, locale)} · {t("items", { count: o.count })}
               </span>
             </span>
-            <span className="rounded-full bg-surface px-3 py-1 text-xs font-bold text-navy">{o.status}</span>
+            <OrderStatusBadge statusKey={o.statusKey} />
             <span className="w-28 text-right text-[15px] font-extrabold">{formatPrice(o.total)}</span>
             {payable && !o.paid ? (
               <span className="text-xs font-bold text-accent">{t("pay")}</span>
@@ -67,7 +109,6 @@ function OrderRows({ rows, payable }: { rows: Row[]; payable?: boolean }) {
 export function OrdersView() {
   const t = useTranslations("orders");
   const tLogin = useTranslations("login");
-  const statusLabel = useStatusLabel();
   const { user } = useAuth();
   const local = useAtomValue(placedOrdersAtom);
   const customerId = user?.erxesCustomerId;
@@ -85,19 +126,22 @@ export function OrdersView() {
         date: o.createdAt,
         total: o.total,
         count: o.items.reduce((s, i) => s + i.count, 0),
-        status: o.paid ? t("paid") : t("unpaid"),
+        statusKey: normalizeOrderStatus(o.status, o.paid),
         paid: o.paid,
       }))
     : [];
-  const remote: Row[] = demoRows.concat((data?.cpFullOrders ?? []).map((o) => ({
-    id: o._id,
-    number: o.number ?? o._id.slice(-6).toUpperCase(),
-    date: o.createdAt,
-    total: o.totalAmount ?? 0,
-    count: o.items?.length ?? 0,
-    status: statusLabel(o.status, Boolean(o.paidDate)),
-    paid: Boolean(o.paidDate),
-  })));
+  const remote: Row[] = demoRows.concat((data?.cpFullOrders ?? []).map((o) => {
+    const paid = Boolean(o.paidDate);
+    return {
+      id: o._id,
+      number: o.number ?? o._id.slice(-6).toUpperCase(),
+      date: o.createdAt,
+      total: o.totalAmount ?? 0,
+      count: o.items?.length ?? 0,
+      statusKey: normalizeOrderStatus(o.status, paid),
+      paid,
+    };
+  }));
   const remoteIds = new Set(remote.map((r) => r.id));
   const mine: Row[] = local
     .filter((o) => !remoteIds.has(o._id))
@@ -107,9 +151,12 @@ export function OrdersView() {
       date: o.createdAt,
       total: o.total,
       count: o.items.reduce((s, i) => s + i.count, 0),
-      status: o.paid ? t("paid") : t("unpaid"),
+      statusKey: normalizeOrderStatus(o.status, o.paid),
       paid: o.paid,
     }));
+
+  // Keep ORDER_STATUS import referenced for discoverability of the canonical lifecycle.
+  void ORDER_STATUS;
 
   return (
     <AccountLayout>

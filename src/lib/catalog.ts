@@ -149,3 +149,39 @@ export const SAMPLE_PRODUCTS: CatalogProduct[] = [
     },
   }),
 ];
+
+/** Sample own products for the hidden /own section, until the erxes "own" category has items. */
+export const SAMPLE_OWN_PRODUCTS: CatalogProduct[] = [
+  {
+    _id: "own-1", unitPrice: 189000, imageUrl: "/images/product-11.jpg", own: true, sample: true, isNew: true,
+    name: { mn: "Сарнай гар хийцийн үнэрт лаа", en: "Sarnai Handmade Scented Candle" },
+    description: {
+      mn: "Байгалийн шар лаа, сарнайн тосоор гараар цутгасан. 40 цаг асна.",
+      en: "Hand-poured natural beeswax with rose oil. Burns for 40 hours.",
+    },
+  },
+  {
+    _id: "own-2", unitPrice: 359000, imageUrl: "/images/product-9.jpg", own: true, sample: true,
+    name: { mn: "Сарнай арьсан цүнх", en: "Sarnai Leather Tote" },
+    description: {
+      mn: "Монгол үхрийн арьсаар хийсэн, өдөр тутмын том цүнх.",
+      en: "An everyday tote made from Mongolian cowhide.",
+    },
+  },
+  {
+    _id: "own-3", unitPrice: 79000, imageUrl: "/images/product-8.jpg", own: true, sample: true,
+    name: { mn: "Сарнай ноолуур бээлий", en: "Sarnai Cashmere Gloves" },
+    description: {
+      mn: "100% монгол ноолуур, зөөлөн бөгөөд дулаахан.",
+      en: "100% Mongolian cashmere — soft and warm.",
+    },
+  },
+  {
+    _id: "own-4", unitPrice: 129000, imageUrl: "/images/product-10.jpg", own: true, sample: true,
+    name: { mn: "Сарнай бэлгийн багц", en: "Sarnai Gift Set" },
+    description: {
+      mn: "Манай брэндийн шилдэг бүтээгдэхүүнүүдийг багтаасан бэлгийн хайрцаг.",
+      en: "A gift box with the best of our own brand.",
+    },
+  },
+];

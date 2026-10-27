@@ -23,6 +23,8 @@ export type CatalogProduct = {
   rating?: number;
   flash?: boolean;
   isNew?: boolean;
+  /** Store's own product — lives in the hidden /own section, not the main shop. */
+  own?: boolean;
   /** Sample catalog item — shown only until an erxes POS is connected. */
   sample?: boolean;
 };

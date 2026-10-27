@@ -49,6 +49,7 @@ export const DEMO_ORDERS: PlacedOrder[] = [
       { name: { mn: "True Wireless чихэвч", en: "True Wireless Earbuds" }, count: 1, unitPrice: 519000, imageUrl: "/images/product-2.jpg" },
     ],
     paid: true,
+    status: "delivered",
   },
   {
     _id: "demo-order-2",
@@ -64,5 +65,6 @@ export const DEMO_ORDERS: PlacedOrder[] = [
       { name: { mn: "Анхилуун үнэрт диффузор", en: "Aroma Diffuser" }, count: 1, unitPrice: 149000, imageUrl: "/images/product-11.jpg" },
     ],
     paid: false,
+    status: "pending_payment",
   },
 ];

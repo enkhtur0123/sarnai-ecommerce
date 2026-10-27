@@ -66,7 +66,7 @@ export function ProductListing() {
 
   const chip = (active: boolean) =>
     cn(
-      "whitespace-nowrap rounded-[20px] px-4 py-2 text-[13px] font-semibold transition-colors",
+      "shrink-0 whitespace-nowrap rounded-[20px] px-4 py-2 text-[13px] font-semibold transition-colors",
       active ? "bg-navy text-white" : "border border-line bg-white text-navy hover:border-navy",
     );
 
@@ -82,8 +82,8 @@ export function ProductListing() {
         )}
       </div>
 
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div className="scrollbar-none -mx-4 flex gap-2 overflow-x-auto px-4">
+      <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+        <div className="scrollbar-none -mx-4 flex min-w-0 flex-1 gap-2 overflow-x-auto px-4 pb-1">
           <button type="button" onClick={() => setParam("category", "")} className={chip(!category)}>
             {t("all")}
           </button>
@@ -93,14 +93,14 @@ export function ProductListing() {
             </button>
           ))}
         </div>
-        <div className="flex shrink-0 flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 xl:shrink-0">
           <button type="button" onClick={() => setParam("filter", filter === "flash" ? "" : "flash")} className={chip(filter === "flash")}>
             {t("filterFlash")}
           </button>
           <button type="button" onClick={() => setParam("filter", filter === "new" ? "" : "new")} className={chip(filter === "new")}>
             {t("filterNew")}
           </button>
-          <label className="flex items-center gap-2 text-[13px] font-semibold text-muted">
+          <label className="flex shrink-0 items-center gap-2 text-[13px] font-semibold text-muted">
             {t("sort")}
             <select
               value={sort}

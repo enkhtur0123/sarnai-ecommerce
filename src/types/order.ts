@@ -1,4 +1,5 @@
 import type { Text } from "./catalog";
+import type { OrderStatusKey } from "@/lib/constants";
 
 export type CartItem = {
   productId: string;
@@ -36,4 +37,6 @@ export type PlacedOrder = {
   /** Payment method picked at checkout, preselected on /verify. */
   paymentId?: string;
   paid: boolean;
+  /** Canonical lifecycle stage. Older stored orders may omit it — infer from `paid`. */
+  status?: OrderStatusKey;
 };

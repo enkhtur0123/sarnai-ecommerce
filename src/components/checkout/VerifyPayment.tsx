@@ -59,7 +59,7 @@ export function VerifyPayment() {
   const markPaid = useCallback(() => {
     setStatus("paid");
     if (!order) return;
-    const paid = { ...order, paid: true };
+    const paid = { ...order, paid: true, status: "paid" as const };
     setOrder(paid);
     setPlaced((list) => list.map((o) => (o._id === paid._id ? paid : o)));
   }, [order, setOrder, setPlaced]);

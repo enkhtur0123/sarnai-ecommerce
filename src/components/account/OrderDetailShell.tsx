@@ -7,7 +7,11 @@ import { Link, useRouter } from "@/i18n/routing";
 import Image from "@/components/common/Image";
 import { PageLoader } from "@/components/common/Loader";
 import { AccountLayout } from "@/components/account/AccountNav";
-import { useStatusLabel } from "@/components/account/OrdersView";
+import {
+  OrderStatusBadge,
+  useStatusDescription,
+  useStatusLabel,
+} from "@/components/account/OrdersView";
 import {
   CP_ORDER_DETAIL,
   type CpOrderDetailData,
@@ -16,11 +20,41 @@ import {
 import { useAuth } from "@/lib/auth/AuthContext";
 import { activeOrderAtom, placedOrdersAtom } from "@/store/order.store";
 import { DEMO_ORDERS, isDemoUser } from "@/lib/auth/demoCustomer";
-import { HAS_POS } from "@/lib/constants";
-import { formatDate, formatPrice } from "@/lib/utils";
+import { HAS_POS, ORDER_STATUS_FLOW, type OrderStatusKey } from "@/lib/constants";
+import { normalizeOrderStatus, orderStatusStep } from "@/lib/orderStatus";
+import { cn, formatDate, formatPrice } from "@/lib/utils";
 import { textFor } from "@/types/catalog";
 
 type Line = { key: string; name: string; count: number; unitPrice: number; imageUrl?: string };
+
+function OrderProgress({ statusKey }: { statusKey: OrderStatusKey }) {
+  const t = useTranslations("orders");
+  const step = orderStatusStep(statusKey);
+  if (step < 0) return null;
+  return (
+    <ol className="m-0 grid list-none grid-cols-7 gap-1 p-0" aria-label="Order progress">
+      {ORDER_STATUS_FLOW.map((key, i) => (
+        <li key={key} className="flex min-w-0 flex-col items-center gap-1.5">
+          <span
+            className={cn(
+              "h-2 w-full rounded-full",
+              i <= step ? "bg-navy" : "bg-line",
+            )}
+            aria-hidden="true"
+          />
+          <span
+            className={cn(
+              "hidden text-center text-[10px] font-semibold leading-tight sm:block",
+              i <= step ? "text-navy" : "text-muted",
+            )}
+          >
+            {t.has(`statuses.${key}`) ? t(`statuses.${key}`) : key}
+          </span>
+        </li>
+      ))}
+    </ol>
+  );
+}
 
 /**
  * Order detail, fetched at runtime: `cpOrderDetail` for the signed-in
@@ -32,6 +66,7 @@ export function OrderDetailShell({ orderId }: { orderId: string }) {
   const locale = useLocale();
   const router = useRouter();
   const statusLabel = useStatusLabel();
+  const statusDescription = useStatusDescription();
   const { user, loading: userLoading } = useAuth();
   const placed = useAtomValue(placedOrdersAtom);
   const setActive = useSetAtom(activeOrderAtom);
@@ -48,16 +83,28 @@ export function OrderDetailShell({ orderId }: { orderId: string }) {
 
   if ((loading || userLoading) && !remote && !local) return <PageLoader />;
 
-  let header: { number: string; date?: string; status: string; total: number; fee: number; address?: string } | null =
-    null;
+  let header: {
+    number: string;
+    date?: string;
+    statusKey: OrderStatusKey;
+    status: string;
+    description: string;
+    total: number;
+    fee: number;
+    address?: string;
+  } | null = null;
   let lines: Line[] = [];
 
   if (remote) {
     const info = (remote.deliveryInfo ?? {}) as Record<string, unknown>;
+    const paid = Boolean(remote.paidDate);
+    const statusKey = normalizeOrderStatus(remote.status, paid);
     header = {
       number: remote.number ?? remote._id.slice(-6).toUpperCase(),
       date: remote.createdAt,
-      status: statusLabel(remote.status, Boolean(remote.paidDate)),
+      statusKey,
+      status: statusLabel(remote.status, paid),
+      description: statusDescription(statusKey),
       total: remote.totalAmount ?? 0,
       fee: typeof info.deliveryFee === "number" ? info.deliveryFee : 0,
       address: typeof info.address === "string" ? info.address : undefined,
@@ -70,10 +117,13 @@ export function OrderDetailShell({ orderId }: { orderId: string }) {
       imageUrl: i.productImgUrl,
     }));
   } else if (local) {
+    const statusKey = normalizeOrderStatus(local.status, local.paid);
     header = {
       number: local.number ?? local._id.slice(-6).toUpperCase(),
       date: local.createdAt,
-      status: local.paid ? t("paid") : t("unpaid"),
+      statusKey,
+      status: statusLabel(local.status, local.paid),
+      description: statusDescription(statusKey),
       total: local.total,
       fee: local.deliveryFee,
       address: local.address,
@@ -104,8 +154,14 @@ export function OrderDetailShell({ orderId }: { orderId: string }) {
                 </h1>
                 <span className="text-sm text-muted">{formatDate(header.date, locale)}</span>
               </div>
-              <span className="rounded-full bg-surface px-4 py-1.5 text-sm font-bold">{header.status}</span>
+              <OrderStatusBadge statusKey={header.statusKey} className="px-4 py-1.5 text-sm" />
             </div>
+
+            {header.description && (
+              <p className="m-0 rounded-xl bg-surface px-4 py-3 text-sm text-navy">{header.description}</p>
+            )}
+
+            <OrderProgress statusKey={header.statusKey} />
 
             <ul className="m-0 flex list-none flex-col rounded-2xl border border-line bg-white p-0">
               {lines.map((l) => (

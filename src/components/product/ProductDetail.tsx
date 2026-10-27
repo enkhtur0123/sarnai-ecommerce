@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, RotateCcw, ShieldCheck, ShoppingCart, Truck } from "lucide-react";
+import { BadgeCheck, Heart, RotateCcw, ShieldCheck, ShoppingCart, Truck } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
 import Image from "@/components/common/Image";
@@ -16,14 +16,19 @@ import { useWishlist } from "@/lib/hooks/useWishlist";
 import { cn, discountPercent, formatPrice } from "@/lib/utils";
 import { textFor } from "@/types/catalog";
 
-export function ProductDetail({ id }: { id: string }) {
+/** `own` renders the product inside the hidden own-products section (/own). */
+export function ProductDetail({ id, own = false }: { id: string; own?: boolean }) {
   const t = useTranslations("product");
   const tCommon = useTranslations("common");
   const tNav = useTranslations("nav");
+  const tOwn = useTranslations("own");
   const locale = useLocale();
   const router = useRouter();
   const { product, loading } = useProduct(id);
-  const { products } = useCatalog();
+  const { products: shopProducts, ownProducts } = useCatalog();
+  const products = own ? ownProducts : shopProducts;
+  const sectionHref = own ? "/own" : "/products";
+  const detailHref = (pid: string) => (own ? `/own/${pid}` : `/products/${pid}`);
   const { add } = useCart();
   const wishlist = useWishlist();
   const [qty, setQty] = useState(1);
@@ -36,8 +41,8 @@ export function ProductDetail({ id }: { id: string }) {
       <div className="container-x flex flex-col items-start gap-4 py-16">
         <h1 className="m-0 text-[28px] font-extrabold">{t("notFound")}</h1>
         <p className="m-0 text-muted">{t("notFoundLead")}</p>
-        <Link href="/products" className="btn-primary">
-          {t("backToShop")}
+        <Link href={sectionHref} className="btn-primary">
+          {own ? tOwn("back") : t("backToShop")}
         </Link>
       </div>
     );
@@ -59,10 +64,10 @@ export function ProductDetail({ id }: { id: string }) {
           {tCommon("home")}
         </Link>
         <span aria-hidden="true">/</span>
-        <Link href="/products" className="hover:text-navy">
-          {tNav("shop")}
+        <Link href={sectionHref} className="hover:text-navy">
+          {own ? tOwn("title") : tNav("shop")}
         </Link>
-        {product.categoryName && (
+        {!own && product.categoryName && (
           <>
             <span aria-hidden="true">/</span>
             <Link href={`/products?category=${product.categoryId}`} className="hover:text-navy">
@@ -104,10 +109,17 @@ export function ProductDetail({ id }: { id: string }) {
 
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-3">
-            {product.categoryName && (
-              <span className="text-xs font-semibold uppercase tracking-[1px] text-muted">
-                {textFor(product.categoryName, locale)}
+            {own ? (
+              <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[1px] text-accent">
+                <BadgeCheck size={14} aria-hidden="true" />
+                {tOwn("badge")}
               </span>
+            ) : (
+              product.categoryName && (
+                <span className="text-xs font-semibold uppercase tracking-[1px] text-muted">
+                  {textFor(product.categoryName, locale)}
+                </span>
+              )
             )}
             <h1 className="m-0 text-[28px] font-extrabold leading-tight tracking-[-0.5px] sm:text-[34px]">{name}</h1>
             {product.rating ? (
@@ -175,7 +187,7 @@ export function ProductDetail({ id }: { id: string }) {
           <h2 className="m-0 text-[22px] font-extrabold tracking-[-0.5px] sm:text-[28px]">{t("related")}</h2>
           <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
             {related.map((p) => (
-              <ProductCard key={p._id} product={p} />
+              <ProductCard key={p._id} product={p} href={detailHref(p._id)} />
             ))}
           </div>
         </section>
