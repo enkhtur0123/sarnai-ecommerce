@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "@/components/common/Image";
+import { MemberEntryCard } from "@/components/membership/MemberEntryCard";
 import { MembershipForm } from "@/components/membership/MembershipForm";
 import { Link } from "@/i18n/routing";
 import { HOTLINE, SUPPORT_EMAIL } from "@/lib/constants";
@@ -238,6 +239,7 @@ export default async function MembershipPage({ params }: Props) {
       <section className="container-x grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
         <MembershipForm />
         <aside className="flex flex-col gap-5">
+          <MemberEntryCard />
           <div className="rounded-2xl border border-line bg-white p-6">
             <h2 className="m-0 text-[19px] font-extrabold">{t("aside.title")}</h2>
             <p className="m-0 mt-1.5 text-[14px] leading-relaxed text-muted">{t("aside.lead")}</p>

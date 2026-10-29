@@ -3,6 +3,7 @@ import { HomeHero } from "@/components/home/HomeHero";
 import { CategoryCircles } from "@/components/home/CategoryCircles";
 import { TodaysDeals } from "@/components/home/TodaysDeals";
 import { Recommended } from "@/components/home/Recommended";
+import { OwnProducts } from "@/components/home/OwnProducts";
 import { FeatureStrip } from "@/components/home/FeatureStrip";
 
 export const revalidate = 60;
@@ -18,6 +19,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <CategoryCircles />
       <TodaysDeals />
       <Recommended />
+      <OwnProducts />
       <FeatureStrip />
     </>
   );

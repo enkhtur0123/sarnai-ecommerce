@@ -31,6 +31,7 @@
   "nav": {
     "home": "Home",
     "shop": "Shop",
+    "own": "Sarnai Originals",
     "flash": "Flash Deals",
     "newArrivals": "New Arrivals",
     "blog": "Blog",
@@ -301,7 +302,22 @@
     "email": "Email",
     "phone": "Phone",
     "memberSince": "Member since",
-    "notSet": "Not set"
+    "notSet": "Not set",
+    "demoBadge": "Demo member",
+    "shop": "Shop now",
+    "memberCta": "Become a member seller",
+    "stats": {
+      "orders": "Orders",
+      "spent": "Total spent",
+      "saved": "Saved products",
+      "since": "Member since"
+    },
+    "recentOrders": "Recent orders",
+    "viewAll": "View all",
+    "itemCount": "{count, plural, one {# item} other {# items}}",
+    "noOrders": "No orders yet.",
+    "savedProducts": "Saved products",
+    "recommended": "Recommended for you"
   },
   "orders": {
     "title": "My orders",
@@ -407,6 +423,8 @@
     "promoLead": "Fresh picks, better living.",
     "promoCta": "Shop New",
     "recommendedTitle": "Recommended for You",
+    "ownTitle": "Sarnai Originals",
+    "ownLead": "Products we make and sell ourselves.",
     "wideSelection": "Wide Selection",
     "wideSelectionSub": "Thousands of products from trusted brands",
     "greatPrices": "Great Prices",
@@ -419,7 +437,7 @@
   "own": {
     "title": "Sarnai Own Collection",
     "badge": "Sarnai original",
-    "lead": "Products we make and sell ourselves. You found this page through the code on our label — thank you for choosing us.",
+    "lead": "Products we make and sell ourselves — quality, warranty and fast delivery from Sarnai.",
     "back": "Back to collection",
     "emptyTitle": "Coming soon",
     "emptyLead": "Our own products will appear here shortly."
@@ -428,6 +446,11 @@
     "meta": {
       "title": "Seller Membership",
       "description": "Become a Sarnai seller member and put your products in front of thousands of shoppers."
+    },
+    "entry": {
+      "title": "Already a member?",
+      "lead": "Sign in to review your orders, products and saved items.",
+      "dashboard": "Go to my account"
     },
     "hero": {
       "eyebrow": "SELLER MEMBERSHIP",

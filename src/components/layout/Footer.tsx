@@ -30,6 +30,7 @@ export async function Footer() {
 
   const shop: FooterLink[] = [
     { id: "all", label: t("allProducts"), href: "/products" },
+    { id: "own", label: tNav("own"), href: "/own" },
     { id: "flash", label: tNav("flash"), href: "/products?filter=flash" },
     { id: "new", label: tNav("newArrivals"), href: "/products?filter=new" },
     { id: "wish", label: t("wishlist"), href: "/wishlist" },

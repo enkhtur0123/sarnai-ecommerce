@@ -1,16 +1,11 @@
 "use client";
 
-import { useAtomValue } from "jotai";
-import { useQuery } from "@apollo/client/react";
 import { ChevronRight, Package } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { AccountLayout } from "@/components/account/AccountNav";
-import { FULL_ORDERS, type FullOrdersData, type FullOrdersVariables } from "@/graphql/ecommerce/queries/order";
-import { useAuth } from "@/lib/auth/AuthContext";
-import { placedOrdersAtom } from "@/store/order.store";
-import { DEMO_ORDERS, isDemoUser } from "@/lib/auth/demoCustomer";
-import { HAS_POS, ORDER_STATUS, type OrderStatusKey } from "@/lib/constants";
+import { useMemberOrders, type MemberOrderRow } from "@/lib/hooks/useMemberOrders";
+import { ORDER_STATUS, type OrderStatusKey } from "@/lib/constants";
 import { ORDER_STATUS_BADGE, normalizeOrderStatus } from "@/lib/orderStatus";
 import { formatDate, formatPrice, cn } from "@/lib/utils";
 
@@ -63,15 +58,7 @@ export function OrderStatusBadge({
   );
 }
 
-type Row = {
-  id: string;
-  number: string;
-  date?: string;
-  total: number;
-  count: number;
-  statusKey: OrderStatusKey;
-  paid: boolean;
-};
+type Row = MemberOrderRow;
 
 function OrderRows({ rows, payable }: { rows: Row[]; payable?: boolean }) {
   const t = useTranslations("orders");
@@ -109,51 +96,7 @@ function OrderRows({ rows, payable }: { rows: Row[]; payable?: boolean }) {
 export function OrdersView() {
   const t = useTranslations("orders");
   const tLogin = useTranslations("login");
-  const { user } = useAuth();
-  const local = useAtomValue(placedOrdersAtom);
-  const customerId = user?.erxesCustomerId;
-
-  const { data, loading } = useQuery<FullOrdersData, FullOrdersVariables>(FULL_ORDERS, {
-    variables: { customerId, perPage: 50, sortField: "createdAt", sortDirection: -1 },
-    skip: !customerId || !HAS_POS,
-    fetchPolicy: "cache-and-network",
-  });
-
-  const demoRows: Row[] = isDemoUser(user)
-    ? DEMO_ORDERS.map((o) => ({
-        id: o._id,
-        number: o.number ?? o._id,
-        date: o.createdAt,
-        total: o.total,
-        count: o.items.reduce((s, i) => s + i.count, 0),
-        statusKey: normalizeOrderStatus(o.status, o.paid),
-        paid: o.paid,
-      }))
-    : [];
-  const remote: Row[] = demoRows.concat((data?.cpFullOrders ?? []).map((o) => {
-    const paid = Boolean(o.paidDate);
-    return {
-      id: o._id,
-      number: o.number ?? o._id.slice(-6).toUpperCase(),
-      date: o.createdAt,
-      total: o.totalAmount ?? 0,
-      count: o.items?.length ?? 0,
-      statusKey: normalizeOrderStatus(o.status, paid),
-      paid,
-    };
-  }));
-  const remoteIds = new Set(remote.map((r) => r.id));
-  const mine: Row[] = local
-    .filter((o) => !remoteIds.has(o._id))
-    .map((o) => ({
-      id: o._id,
-      number: o.number ?? o._id.slice(-6).toUpperCase(),
-      date: o.createdAt,
-      total: o.total,
-      count: o.items.reduce((s, i) => s + i.count, 0),
-      statusKey: normalizeOrderStatus(o.status, o.paid),
-      paid: o.paid,
-    }));
+  const { user, accountRows: remote, localRows: mine, loading } = useMemberOrders();
 
   // Keep ORDER_STATUS import referenced for discoverability of the canonical lifecycle.
   void ORDER_STATUS;

@@ -14,7 +14,7 @@ export function AccountNav() {
   const { user, logout } = useAuth();
 
   const items = [
-    { href: "/profile", label: t("profile"), icon: User },
+    { href: "/profile", label: t("title"), icon: User },
     { href: "/orders", label: t("orders"), icon: Package },
     { href: "/wishlist", label: t("wishlist"), icon: Heart },
   ];

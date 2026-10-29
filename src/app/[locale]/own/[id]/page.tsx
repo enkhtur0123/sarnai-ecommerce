@@ -9,11 +9,10 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/own/[id]
   const sample = SAMPLE_OWN_PRODUCTS.find((p) => p._id === id);
   return {
     ...(sample && { title: textFor(sample.name, locale), description: textFor(sample.description, locale) }),
-    robots: { index: false, follow: false },
   };
 }
 
-/** An own product, shown inside the hidden /own section. */
+/** An own product, shown inside the public /own collection. */
 export default async function OwnProductPage({ params }: PageProps<"/[locale]/own/[id]">) {
   const { locale, id } = await params;
   setRequestLocale(locale);
