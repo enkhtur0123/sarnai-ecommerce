@@ -6,11 +6,16 @@ export const POS_TOKEN = process.env.NEXT_PUBLIC_POS_TOKEN ?? "";
 export const HAS_POS = POS_TOKEN.length > 0;
 
 /**
- * Code of the erxes POS product category that holds the store's own products.
- * Products in it (and its sub-categories) are shown only in the hidden /own
- * section, which is reached through the printed QR / barcode link.
+ * How the store's own products are marked in erxes — by a product tag, a
+ * product property, or both (either one is enough). Own products show in the
+ * main shop with a badge, and also in the /own section reached through the
+ * printed QR / barcode link.
+ *
+ * OWN_FIELD_VALUE is optional: without it any "yes" value of the property counts.
  */
-export const OWN_CATEGORY_CODE = (process.env.NEXT_PUBLIC_OWN_CATEGORY_CODE ?? "OWN").trim().toLowerCase();
+export const OWN_TAG_ID = (process.env.NEXT_PUBLIC_OWN_TAG_ID ?? "").trim();
+export const OWN_FIELD_ID = (process.env.NEXT_PUBLIC_OWN_FIELD_ID ?? "").trim();
+export const OWN_FIELD_VALUE = (process.env.NEXT_PUBLIC_OWN_FIELD_VALUE ?? "").trim().toLowerCase();
 
 export const BRAND = "sarnai";
 export const HOTLINE = "+976 7700 0199";

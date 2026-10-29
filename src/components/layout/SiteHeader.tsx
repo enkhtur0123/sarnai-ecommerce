@@ -17,6 +17,7 @@ async function headerLinks(): Promise<NavLink[]> {
     { id: "new", label: t("newArrivals"), href: "/products?filter=new" },
     { id: "blog", label: t("blog"), href: "/blog" },
     { id: "about", label: t("about"), href: "/about" },
+    { id: "membership", label: t("membership"), href: "/membership" },
     { id: "track", label: t("track"), href: "/orders" },
   ];
 }

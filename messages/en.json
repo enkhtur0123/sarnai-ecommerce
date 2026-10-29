@@ -37,7 +37,8 @@
     "track": "Track Order",
     "about": "About",
     "contact": "Contact",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "membership": "Membership"
   },
   "hero": {
     "eyebrow": "BIG SALE · UP TO 30% OFF",
@@ -117,6 +118,7 @@
     "bestSellers": "Best Sellers",
     "allProducts": "All Products",
     "aboutUs": "About Sarnai",
+    "membership": "Seller Membership",
     "blog": "Blog",
     "faq": "FAQ",
     "account": "My Account",
@@ -147,7 +149,8 @@
     "perks1": "Free delivery over 200,000₮",
     "perks2": "14-day returns",
     "perks3": "Secure checkout",
-    "rating": "Rated {rating} out of 5"
+    "rating": "Rated {rating} out of 5",
+    "own": "Sarnai original"
   },
   "products": {
     "title": "Shop",
@@ -420,5 +423,148 @@
     "back": "Back to collection",
     "emptyTitle": "Coming soon",
     "emptyLead": "Our own products will appear here shortly."
+  },
+  "membership": {
+    "meta": {
+      "title": "Seller Membership",
+      "description": "Become a Sarnai seller member and put your products in front of thousands of shoppers."
+    },
+    "hero": {
+      "eyebrow": "SELLER MEMBERSHIP",
+      "title": "Sell your products on Sarnai",
+      "lead": "A seller member is a person or business allowed to list products in the Sarnai store and sell directly to thousands of shoppers. Send an application and our team replies within 3 business days.",
+      "apply": "Send application",
+      "how": "How it works",
+      "quickTitle": "What membership includes",
+      "quick1": "Free to join",
+      "quick2": "10% sales commission",
+      "quick3": "Weekly payouts"
+    },
+    "stats": {
+      "buyers": "Active shoppers",
+      "buyersValue": "12,000+",
+      "commission": "Sales commission",
+      "commissionValue": "10%",
+      "payout": "Payout schedule",
+      "payoutValue": "Every 7 days",
+      "delivery": "Delivery coverage",
+      "deliveryValue": "UB + 21 provinces"
+    },
+    "who": {
+      "title": "Who can join",
+      "lead": "Any person or business that meets the requirements below can become a seller member.",
+      "item1Title": "Officially registered",
+      "item1Text": "Hold a company or sole proprietor certificate and be able to issue VAT receipts.",
+      "item2Title": "Trusted products",
+      "item2Text": "Products must meet quality standards, be legally sold and come with a return policy.",
+      "item3Title": "Reliable supply",
+      "item3Text": "Prepare orders within 48 hours and deliver them to our fulfilment centre."
+    },
+    "benefits": {
+      "title": "Why sell with Sarnai",
+      "lead": "We handle sales, marketing and logistics so you can focus on your products and service.",
+      "item1Title": "Ready audience",
+      "item1Text": "More than 50,000 visitors discover your products every month.",
+      "item2Title": "Delivery and storage",
+      "item2Text": "Next-day delivery in Ulaanbaatar and 2–4 days to the provinces.",
+      "item3Title": "Payment protection",
+      "item3Text": "We collect QPay, card and bank payments and transfer your earnings.",
+      "item4Title": "Marketing support",
+      "item4Text": "Free participation in campaigns, banners and email promotions."
+    },
+    "steps": {
+      "title": "How to become a member",
+      "lead": "A simple four-step process.",
+      "step1Title": "Send your application",
+      "step1Text": "Fill in the form below with your brand and product details.",
+      "step2Title": "Review and interview",
+      "step2Text": "Our team contacts you within 3 business days to confirm the details.",
+      "step3Title": "Contract and account",
+      "step3Text": "Once terms are agreed, we sign the contract and create your store account.",
+      "step4Title": "List your products",
+      "step4Text": "Add your products and start receiving orders."
+    },
+    "fees": {
+      "title": "Fees and payments",
+      "lead": "Transparent, with no hidden charges.",
+      "rateLabel": "Sales commission",
+      "rateValue": "10%",
+      "rateNote": "Charged only on completed sales.",
+      "payoutLabel": "Payout schedule",
+      "payoutValue": "Every 7 days",
+      "payoutNote": "Transferred to your bank account every Thursday.",
+      "listingLabel": "Product listing",
+      "listingValue": "Free",
+      "listingNote": "No extra fee for your first 30 products.",
+      "note": "The buyer pays delivery fees. Commission is not charged on refunded orders."
+    },
+    "form": {
+      "title": "Membership application",
+      "lead": "Fill in the form and send it. We will get back to you within 3 business days.",
+      "businessName": "Brand / store name",
+      "contactName": "Contact person",
+      "phone": "Phone number",
+      "email": "Email",
+      "category": "Product category",
+      "productCount": "Number of products",
+      "channels": "Sales channels",
+      "channelsPlaceholder": "For example: Facebook, Instagram, your own website",
+      "description": "What will you sell?",
+      "descriptionPlaceholder": "Briefly describe your product range, price range and delivery terms.",
+      "agree": "I agree to the Sarnai seller membership terms.",
+      "submit": "Send application",
+      "submitting": "Sending…",
+      "successTitle": "Application received",
+      "successLead": "Thank you! Our team will contact you within 3 business days.",
+      "again": "Send another application",
+      "errors": {
+        "required": "Please fill in all required fields.",
+        "email": "Please enter a valid email address.",
+        "agree": "Please accept the terms to continue.",
+        "failed": "We could not send your application. Try again or call us.",
+        "fallback": "Or send your application by email"
+      },
+      "categories": {
+        "audio": "Audio and earphones",
+        "smartHome": "Smart home",
+        "accessories": "Phone accessories",
+        "beauty": "Beauty",
+        "home": "Home and living",
+        "clothing": "Clothing",
+        "other": "Other"
+      },
+      "counts": {
+        "a": "1–10 products",
+        "b": "11–50 products",
+        "c": "51–200 products",
+        "d": "200+ products"
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "lead": "Common questions about seller membership.",
+      "q1": "How much does it cost to join?",
+      "a1": "Registration is free. A 10% commission applies only to completed sales.",
+      "q2": "Can I sell imported products?",
+      "a2": "Yes. You are responsible for customs clearance and import documents, and must guarantee that products are genuine.",
+      "q3": "Who handles delivery?",
+      "a3": "Sarnai arranges delivery. Once you hand the goods to our fulfilment centre, we take responsibility.",
+      "q4": "When do I get paid?",
+      "a4": "Every Thursday we transfer the previous week's sales earnings to your bank account.",
+      "q5": "What about returns?",
+      "a5": "Buyers may return products within 14 days. Return costs are settled according to the contract."
+    },
+    "aside": {
+      "title": "Need help?",
+      "lead": "If the form is difficult to complete, contact us directly.",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "hoursLabel": "Office hours",
+      "hoursValue": "Monday–Friday 9:00–18:00",
+      "checklistTitle": "Before you apply",
+      "checklist1": "Your business registration number is ready",
+      "checklist2": "Product prices and stock levels are clear",
+      "checklist3": "Return and warranty terms are written down"
+    }
   }
 }

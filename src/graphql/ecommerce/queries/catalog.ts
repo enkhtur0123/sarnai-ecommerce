@@ -10,6 +10,8 @@ export const STORE_PRODUCTS = gql`
       description
       unitPrice
       createdAt
+      tagIds
+      customFieldsData
       attachment {
         url
       }

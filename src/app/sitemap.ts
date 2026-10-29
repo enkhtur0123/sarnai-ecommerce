@@ -5,7 +5,7 @@ import { getCmsPosts } from "@/lib/cms";
 export const revalidate = 3600;
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sarnai-ecommerce.mn";
-const STATIC_PATHS = ["", "/products", "/about", "/contact", "/faq", "/blog"];
+const STATIC_PATHS = ["", "/products", "/about", "/contact", "/faq", "/blog", "/membership"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];

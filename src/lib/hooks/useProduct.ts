@@ -8,6 +8,7 @@ import {
 } from "@/graphql/ecommerce/queries/product";
 import { HAS_POS } from "@/lib/constants";
 import { SAMPLE_OWN_PRODUCTS, SAMPLE_PRODUCTS } from "@/lib/catalog";
+import { isOwnProduct } from "@/lib/own";
 import { erxesFileUrl, stripHtml } from "@/lib/utils";
 import type { CatalogProduct } from "@/types/catalog";
 
@@ -36,6 +37,7 @@ export function useProduct(id: string) {
     unitPrice: p.unitPrice ?? 0,
     imageUrl: images[0],
     images,
+    own: isOwnProduct(p),
   };
   return { product, loading: false };
 }

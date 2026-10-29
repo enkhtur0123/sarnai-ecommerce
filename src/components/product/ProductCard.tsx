@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, ShoppingCart, Star } from "lucide-react";
+import { BadgeCheck, Heart, ShoppingCart, Star } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "@/components/common/Image";
@@ -70,6 +70,12 @@ export function ProductCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-1.5 px-3 pb-3">
+        {product.own && (
+          <span className="flex items-center gap-1 text-[11px] font-semibold text-accent">
+            <BadgeCheck size={12} aria-hidden="true" />
+            {t("own")}
+          </span>
+        )}
         <Link href={href} className="line-clamp-2 min-h-[2.5em] text-[13px] leading-[1.25] text-navy hover:text-accent">
           {name}
         </Link>

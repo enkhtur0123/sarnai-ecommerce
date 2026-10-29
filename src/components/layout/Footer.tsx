@@ -39,6 +39,7 @@ export async function Footer() {
       ? cmsLinks
       : [
           { id: "about", label: t("aboutUs"), href: "/about" },
+          { id: "membership", label: t("membership"), href: "/membership" },
           { id: "blog", label: t("blog"), href: "/blog" },
           { id: "faq", label: t("faq"), href: "/faq" },
           { id: "contact", label: t("contact"), href: "/contact" },

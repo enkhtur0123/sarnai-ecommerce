@@ -150,7 +150,7 @@ export const SAMPLE_PRODUCTS: CatalogProduct[] = [
   }),
 ];
 
-/** Sample own products for the hidden /own section, until the erxes "own" category has items. */
+/** Sample own products, shown until erxes POS is connected. */
 export const SAMPLE_OWN_PRODUCTS: CatalogProduct[] = [
   {
     _id: "own-1", unitPrice: 189000, imageUrl: "/images/product-11.jpg", own: true, sample: true, isNew: true,

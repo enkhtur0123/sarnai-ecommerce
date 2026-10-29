@@ -109,7 +109,7 @@ export function ProductDetail({ id, own = false }: { id: string; own?: boolean }
 
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-3">
-            {own ? (
+            {product.own ? (
               <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[1px] text-accent">
                 <BadgeCheck size={14} aria-hidden="true" />
                 {tOwn("badge")}

@@ -25,9 +25,13 @@ export type Product = {
   hasSimilarity?: boolean;
   attachment?: Attachment;
   attachmentMore?: Attachment[];
-  customFieldsData?: Record<string, unknown>;
+  customFieldsData?: CustomFieldData[] | Record<string, unknown>;
+  tagIds?: string[];
   category?: Pick<ProductCategory, "_id" | "name" | "order">;
 };
+
+/** One product property value as erxes stores it. */
+export type CustomFieldData = { field: string; value?: unknown; stringValue?: string };
 
 export type ProductSimilarityGroup = {
   fieldId?: string;
@@ -237,6 +241,8 @@ export const POSC_PRODUCT_DETAIL = gql`
       unitPrice
       remainder
       hasSimilarity
+      tagIds
+      customFieldsData
       category {
         order
         name
